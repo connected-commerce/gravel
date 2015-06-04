@@ -40,12 +40,6 @@ var Main = React.createClass(
                                   },
 
     "mixins":                     [
-                                    Ambidex.mixinCreators.connectStoresToLocalState(
-                                      [
-                                        "leftDrawerIsOpen",
-                                        "rightDrawerIsOpen"
-                                      ]
-                                    ),
                                   ],
 
     "render":                     function () {
@@ -54,7 +48,6 @@ var Main = React.createClass(
                                     return  <div style = { this.props.style }>
                                               <AppBar
                                                 shouldShowNavIcon   = { Boolean(this.props.leftSideBar) }
-                                                showNavAction       = { this.getFunxAction("showLeftDrawer") }
                                                 imagesURL           = { this.props.staticURL + "images/" }
                                                 actionButtons       = { this.props.appBarActionButtons }
                                                 logoSrc             = { this.props.logoSrc }
@@ -70,7 +63,6 @@ var Main = React.createClass(
                                                   ? <Drawer
                                                       side            = "left"
                                                       open            = { this.state.leftDrawerIsOpen }
-                                                      hideAction      = { this.getFunxAction("hideLeftDrawer") }
                                                       content         = { this.props.leftSideBar }
                                                       backgroundColor = { this.props.leftSideBarBackgroundColor }
                                                     />
@@ -86,7 +78,6 @@ var Main = React.createClass(
                                                   ? <Drawer
                                                       side            = "right"
                                                       open            = { this.state.rightDrawerIsOpen }
-                                                      hideAction      = { this.getFunxAction("hideRightDrawer") }
                                                       content         = { this.props.rightSideBar }
                                                       backgroundColor = { this.props.rightSideBarBackgroundColor }
                                                     />
